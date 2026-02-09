@@ -9,3 +9,13 @@ header {
   justify-content: center;
   padding: 32px;
 }
+
+section {
+  background: linear-gradient(to bottom, #17E4B9, #091D24);
+  display: flex;
+  justify-content: center;
+}
+
+section img {
+  max-width: 90%;
+}
