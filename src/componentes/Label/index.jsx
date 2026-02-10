@@ -1,4 +1,4 @@
-import './label.estilos.css'
+import "./label.estilos.css";
 
 export function Label({ children, htmlFor }) {
   return (
