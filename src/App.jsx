@@ -2,15 +2,48 @@ import "./App.css";
 
 // No React, componentes são funções
 
+function TituloFormulario(props) {
+  return (
+    <>
+      <h2>{props.children}</h2>
+    </>
+  );
+}
+
+function CampoDeFormulario({ children }) {
+  return (
+    <>
+      <fieldset>{children}</fieldset>
+    </>
+  );
+}
+
+function Label({ children, htmlFor }) {
+  return (
+    <>
+      <label htmlFor={htmlFor}>{children}</label>
+    </>
+  );
+}
+
+function Input(props) {
+  return <input {...props} />;
+}
+
 function FormularioDeEvento() {
   return (
     <>
       <form className="formulario-evento">
-        <h2>Preencha para criar um evento:</h2>
-        <fieldset>
-          <label htmlFor="nome">Qual o nome do evento?</label>
-          <input type="text" id="nome" placeholder="Summer dev hits"/>
-        </fieldset>
+        <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
+        <CampoDeFormulario>
+          <Label htmlFor="nome">Qual o nome do evento?</Label>
+          <Input
+            type="text"
+            id="nome"
+            placeholder="Summer dev hits"
+            name="nomeEvento"
+          />
+        </CampoDeFormulario>
       </form>
     </>
   );
