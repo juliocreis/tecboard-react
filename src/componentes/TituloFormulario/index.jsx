@@ -1,3 +1,5 @@
+import './titulo-formulario.estilos.css'
+
 export function TituloFormulario(props) {
   return (
     <>

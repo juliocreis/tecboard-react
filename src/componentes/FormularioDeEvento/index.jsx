@@ -1,3 +1,4 @@
+import './formulario-de-evento.estilos.css'
 import { CampoDeFormulario } from "../CampoDeFormulario";
 import { Input } from "../Input";
 import { Label } from "../Label";
