@@ -13,40 +13,36 @@ export function FormularioDeEvento() {
         <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
 
         <div className="campos">
-          <div className="campo">
-            <CampoDeFormulario>
-              <Label htmlFor="nome">Qual o nome do evento?</Label>
-              <Input
-                type="text"
-                id="nome"
-                placeholder="Summer dev hits"
-                name="nomeEvento"
-              />
-            </CampoDeFormulario>
-          </div>
+          <CampoDeFormulario>
+            <Label htmlFor="nome">Qual o nome do evento?</Label>
+            <Input
+              type="text"
+              id="nome"
+              placeholder="Summer dev hits"
+              name="nomeEvento"
+            />
+          </CampoDeFormulario>
 
-          <div className="campo">
-            <CampoDeFormulario>
-              <Label htmlFor="data">Data do evento</Label>
-              <Input
-                type="date"
-                id="data"
-                placeholder="XX/XX/XXXX"
-                name="dataEvento"
-              />
-            </CampoDeFormulario>
-          </div>
+          <CampoDeFormulario>
+            <Label htmlFor="data">Data do evento</Label>
+            <Input
+              type="date"
+              id="data"
+              placeholder="XX/XX/XXXX"
+              name="dataEvento"
+            />
+          </CampoDeFormulario>
 
-          <div className="campo">
-            <CampoDeFormulario>
-              <Label htmlFor="tema">Tema do evento</Label>
-              <ListaSupensa className="lista-suspensa"></ListaSupensa>
-            </CampoDeFormulario>
-          </div>
+          <CampoDeFormulario>
+            <Label htmlFor="tema">Tema do evento</Label>
+            <ListaSupensa></ListaSupensa>
+          </CampoDeFormulario>
         </div>
 
         <div className="container-botao">
-          <Botao type="submit">Criar evento</Botao>
+          <Botao>
+            Criar evento
+          </Botao>
         </div>
       </form>
     </>
