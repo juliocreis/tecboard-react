@@ -8,30 +8,29 @@ import { Tema } from "./componentes/Tema";
 const temas = [
   {
     id: 1,
-    nome: "FRONT-END"
+    nome: "FRONT-END",
   },
   {
     id: 2,
-    nome: "BACK-END"
+    nome: "BACK-END",
   },
   {
     id: 3,
-    nome: "FRONT-END"
+    nome: "FRONT-END",
   },
   {
     id: 4,
-    nome: "DEVOPS"
+    nome: "DEVOPS",
   },
   {
     id: 5,
-    nome: "INTELIGÊNCIA ARTIFICIAL"
+    nome: "INTELIGÊNCIA ARTIFICIAL",
   },
   {
     id: 6,
-    nome: "CLOUD"
-  }
-]
-
+    nome: "CLOUD",
+  },
+];
 
 function App() {
   return (
@@ -43,7 +42,16 @@ function App() {
         <Banner></Banner>
       </main>
       <FormularioDeEvento />
-      <section>
+
+      {temas.map(function (item) {
+        return (
+          <section key={item.id}>
+            <Tema tema={item}></Tema>
+          </section>
+        );
+      })}
+
+      {/*       <section>
         <Tema tema={temas[0]}></Tema>
       </section>
       <section>
@@ -60,7 +68,7 @@ function App() {
       </section>
       <section>
         <Tema tema={temas[5]}></Tema>
-      </section>
+      </section> */}
     </>
   );
 }
