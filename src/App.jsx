@@ -1,5 +1,6 @@
 import "./App.css";
 import { Banner } from "./componentes/Banner";
+import { CardEvento } from "./componentes/CardEvento";
 import { FormularioDeEvento } from "./componentes/FormularioDeEvento";
 import { Tema } from "./componentes/Tema";
 
@@ -32,6 +33,16 @@ const temas = [
   },
 ];
 
+const eventos = [
+  {
+    capa: './src/assets/evento-mulheres-no-front.png',
+    tema: temas[0],
+    data: new Date(),
+    titulo: "Mulheres no Front",
+    texto: "Valorizando e impulsionando a participação feminina no desenvolvimento front-end."
+  }
+]
+
 function App() {
   return (
     <>
@@ -47,28 +58,11 @@ function App() {
         return (
           <section key={item.id}>
             <Tema tema={item}></Tema>
+            <CardEvento evento={eventos[0]}></CardEvento>
           </section>
         );
       })}
 
-      {/*       <section>
-        <Tema tema={temas[0]}></Tema>
-      </section>
-      <section>
-        <Tema tema={temas[1]}></Tema>
-      </section>
-      <section>
-        <Tema tema={temas[2]}></Tema>
-      </section>
-      <section>
-        <Tema tema={temas[3]}></Tema>
-      </section>
-      <section>
-        <Tema tema={temas[4]}></Tema>
-      </section>
-      <section>
-        <Tema tema={temas[5]}></Tema>
-      </section> */}
     </>
   );
 }
