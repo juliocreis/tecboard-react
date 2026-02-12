@@ -1,4 +1,5 @@
 import "./App.css";
+import { Banner } from "./componentes/Banner";
 import { FormularioDeEvento } from "./componentes/FormularioDeEvento";
 import { Tema } from "./componentes/Tema";
 
@@ -39,12 +40,7 @@ function App() {
         <header>
           <img src="/logo.png" alt="Logo do Tecboard" />
         </header>
-        <section className="banner">
-          <img
-            src="/banner.png"
-            alt="Mulher se divertindo com óculos de realidade virtual"
-          />
-        </section>
+        <Banner></Banner>
       </main>
       <FormularioDeEvento />
       <section>
