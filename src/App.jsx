@@ -1,4 +1,5 @@
 import "./App.css";
+import { Banner } from "./componentes/Banner";
 import { FormularioDeEvento } from "./componentes/FormularioDeEvento";
 
 // No React, componentes são funções
@@ -10,12 +11,7 @@ function App() {
         <header>
           <img src="/logo.png" alt="Logo do Tecboard" />
         </header>
-        <section>
-          <img
-            src="/banner.png"
-            alt="Mulher se divertindo com óculos de realidade virtual"
-          />
-        </section>
+        <Banner></Banner>
       </main>
       <FormularioDeEvento />
     </>
