@@ -1,13 +1,17 @@
 import './lista-suspensa.estilos.css'
 
-export function ListaSupensa() {
+export function ListaSupensa( { itens, ...rest}) {
     return (
         <>
-        <select id='lista-suspensa' className='lista-suspensa'>\
-            <option value="notInformed">Selecione uma opção</option>
-            <option value="frontend">Frontend</option>
-            <option value="backend">Backend</option>
-            <option value="fullstack">Full Stack</option>
+        <select {...rest} className='lista-suspensa' defaultValue="">\
+            <option value="" disabled>Selecione uma opção</option>
+            {itens.map(function (itens) {
+                return (
+                    <>
+                    <option key={itens.id} value={itens.id}>{itens.nome}</option>
+                    </>
+                )
+            })}
         </select>
         </>
     )

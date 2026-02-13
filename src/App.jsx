@@ -9,27 +9,27 @@ import { Tema } from "./componentes/Tema";
 const temas = [
   {
     id: 1,
-    nome: "FRONT-END",
+    nome: "front-end",
   },
   {
     id: 2,
-    nome: "BACK-END",
+    nome: "back-end",
   },
   {
     id: 3,
-    nome: "DEVOPS",
+    nome: "devops",
   },
   {
     id: 4,
-    nome: "INTELIGÊNCIA ARTIFICIAL",
+    nome: "inteligência artificial",
   },
   {
     id: 5,
-    nome: "DATA SCIENCE",
+    nome: "data science",
   },
   {
     id: 6,
-    nome: "CLOUD",
+    nome: "cloud",
   },
 ];
 
@@ -52,7 +52,7 @@ function App() {
         </header>
         <Banner></Banner>
       </main>
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={ temas }/>
 
       {temas.map(function (item) {
         return (
