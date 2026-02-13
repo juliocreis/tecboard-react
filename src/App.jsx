@@ -17,15 +17,15 @@ const temas = [
   },
   {
     id: 3,
-    nome: "FRONT-END",
-  },
-  {
-    id: 4,
     nome: "DEVOPS",
   },
   {
-    id: 5,
+    id: 4,
     nome: "INTELIGÊNCIA ARTIFICIAL",
+  },
+  {
+    id: 5,
+    nome: "DATA SCIENCE",
   },
   {
     id: 6,
