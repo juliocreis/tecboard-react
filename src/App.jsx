@@ -6,6 +6,11 @@ import { Tema } from "./componentes/Tema";
 
 // No React, componentes são funções
 
+function adicionarEvento(evento) {
+  eventos.push(evento);
+  console.log("Eventos =>", eventos);
+}
+
 const temas = [
   {
     id: 1,
@@ -52,13 +57,17 @@ function App() {
         </header>
         <Banner></Banner>
       </main>
-      <FormularioDeEvento temas={ temas }/>
+      <FormularioDeEvento temas={ temas } aoSubmeter={adicionarEvento}/>
 
       {temas.map(function (item) {
         return (
           <section key={item.id}>
             <Tema tema={item}></Tema>
-            <CardEvento evento={eventos[0]}></CardEvento>
+            {eventos.map(function(item, index){
+              return (
+                <CardEvento evento={item} key={index}></CardEvento>
+              );
+            })}
           </section>
         );
       })}

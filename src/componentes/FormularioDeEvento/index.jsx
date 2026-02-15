@@ -7,7 +7,7 @@ import { ListaSupensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
 import { Textarea } from "../Textarea";
 
-export function FormularioDeEvento({ temas }) {
+export function FormularioDeEvento({ temas, aoSubmeter }) {
 
   function aoFormSubmetido(formData) {
     const evento = {
@@ -20,12 +20,12 @@ export function FormularioDeEvento({ temas }) {
       texto: formData.get('descricaoEvento')
     };
 
-    console.log(evento);
+    aoSubmeter(evento);
   }
 
   return (
     <>
-      <form className="formulario-evento" action={aoFormSubmetido}>
+      <form className="formulario-evento" action={aoFormSubmetido}> {/* O React cria um objeto formData por debaixo dos panos que é passado como argumento */}
         <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
 
         <div className="campos">
