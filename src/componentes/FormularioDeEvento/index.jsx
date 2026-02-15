@@ -17,8 +17,7 @@ export function FormularioDeEvento({ temas }) {
       }),
       data: new Date(formData.get('dataEvento')),
       titulo: formData.get('nomeEvento'),
-      texto:
-        "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
+      texto: formData.get('descricaoEvento')
     };
 
     console.log(evento);
@@ -71,7 +70,7 @@ export function FormularioDeEvento({ temas }) {
           
           <CampoDeFormulario>
             <Label htmlFor="descricao">Descrição do evento</Label>
-            <Textarea id="descricao" placeholder="Valorizando e impulsionando..." name="descricao">
+            <Textarea id="descricao" placeholder="Valorizando e impulsionando..." name="descricaoEvento">
 
             </Textarea>
           </CampoDeFormulario>
