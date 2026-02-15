@@ -5,11 +5,28 @@ import { Label } from "../Label";
 import { TituloFormulario } from "../TituloFormulario";
 import { ListaSupensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
+import { Textarea } from "../Textarea";
 
 export function FormularioDeEvento({ temas }) {
+
+  function aoFormSubmetido(formData) {
+    const evento = {
+      capa: formData.get('capaEvento'),
+      tema: temas.find(function (itens) {
+        return itens.id == formData.get('lista-suspensa')
+      }),
+      data: new Date(formData.get('dataEvento')),
+      titulo: formData.get('nomeEvento'),
+      texto:
+        "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
+    };
+
+    console.log(evento);
+  }
+
   return (
     <>
-      <form className="formulario-evento">
+      <form className="formulario-evento" action={aoFormSubmetido}>
         <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
 
         <div className="campos">
@@ -45,14 +62,23 @@ export function FormularioDeEvento({ temas }) {
 
           <CampoDeFormulario>
             <Label htmlFor="tema">Tema do evento</Label>
-            <ListaSupensa itens={ temas } id="lista-suspensa" name="lista-suspensa"></ListaSupensa>
+            <ListaSupensa
+              itens={temas}
+              id="lista-suspensa"
+              name="lista-suspensa"
+            ></ListaSupensa>
+          </CampoDeFormulario>
+          
+          <CampoDeFormulario>
+            <Label htmlFor="descricao">Descrição do evento</Label>
+            <Textarea id="descricao" placeholder="Valorizando e impulsionando..." name="descricao">
+
+            </Textarea>
           </CampoDeFormulario>
         </div>
 
         <div className="container-botao">
-          <Botao>
-            Criar evento
-          </Botao>
+          <Botao>Criar evento</Botao>
         </div>
       </form>
     </>
