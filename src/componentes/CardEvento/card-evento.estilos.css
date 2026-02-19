@@ -24,6 +24,7 @@
     background-color: #4A4949;
     padding: 8px;
     border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .card-evento .data {

@@ -1,0 +1,9 @@
+textarea {
+  background-color: transparent;
+  border: 1px solid #4a4949;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: #ffffff;
+  font-weight: 400;
+  min-height: 100px;
+}
