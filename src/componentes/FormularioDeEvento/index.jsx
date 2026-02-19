@@ -25,7 +25,7 @@ export function FormularioDeEvento({ temas, aoSubmeter }) {
 
   return (
     <>
-      <form className="formulario-evento" action={aoFormSubmetido}> {/* O React cria um objeto formData por debaixo dos panos que é passado como argumento */}
+      <form className="formulario-evento" action={aoFormSubmetido}> 
         <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
 
         <div className="campos">
