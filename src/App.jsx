@@ -8,8 +8,7 @@ import { Tema } from "./componentes/Tema";
 // No React, componentes são funções
 
 function App() {
-
-    const temas = [
+  const temas = [
     {
       id: 1,
       nome: "front-end",
@@ -35,17 +34,17 @@ function App() {
       nome: "cloud",
     },
   ];
-  
+
   const [eventos, setEventos] = useState([
     {
-      capa: "./src/assets/evento-mulheres-no-front.png",
+      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
       tema: temas[0],
       data: new Date(),
       titulo: "Mulheres no Front",
       texto:
         "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
     },
-  ])
+  ]);
 
   function adicionarEvento(evento) {
     setEventos([...eventos, evento]);
@@ -61,16 +60,31 @@ function App() {
       </main>
       <FormularioDeEvento temas={temas} aoSubmeter={adicionarEvento} />
 
-      {temas.map(function (item) {
-        return (
-          <section key={item.id}>
-            <Tema tema={item}></Tema>
-            {eventos.map(function (item, index) {
-              return <CardEvento evento={item} key={index}></CardEvento>;
-            })}
-          </section>
-        );
-      })}
+      <section className="container">
+        {temas.map(function (tema) {
+          if (!eventos.some(function (evento) {return evento.tema.id == tema.id;})
+          ) {
+            return null;
+          }
+          return (
+            <section key={tema.id}>
+              <Tema tema={tema}></Tema>
+
+              <div className="eventos">
+                {eventos
+                  .filter(function (evento) {
+                    return evento.tema.id == tema.id;
+                  })
+                  .map(function (evento, index) {
+                    return (
+                      <CardEvento evento={evento} key={index}></CardEvento>
+                    );
+                  })}
+              </div>
+            </section>
+          );
+        })}
+      </section>
     </>
   );
 }
