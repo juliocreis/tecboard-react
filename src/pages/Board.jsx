@@ -6,7 +6,16 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Logo from "../assets/Logo.png";
 import Banner from "../assets/Banner.png";
-import { Card, CardContent, CardMedia, FormControl, Grid, InputLabel, OutlinedInput, Stack } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  FormControl,
+  Grid,
+  InputLabel,
+  OutlinedInput,
+  Stack,
+} from "@mui/material";
 
 import { eventCategories } from "../mocks/eventMock";
 
@@ -99,32 +108,39 @@ export function Board() {
               ></OutlinedInput>
             </FormControl>
           </Stack>
-
-          
         </Box>
       </Box>
 
       <Box>
-            {eventCategories.map((category) => (
-              <Box key={category.name}>
-                <Typography>{category.name}</Typography>
+        {eventCategories.map((category) => (
+          <Box key={category.name}>
+            <Typography>{category.name}</Typography>
 
-                <Grid container spacing={2} sx={{width: '100%', maxWidth: '1024px'}}>
-                  {category.events.map((event) => (
-                    <Grid item xs={12} sm={6} md={4} key={event.id}>
-                      <Card>
-                        <CardMedia component='img' height='140px' image={event.image} alt={event.name}></CardMedia>
-                        <CardContent sx={{ flexGrow: 1 }}>
-                          <Typography>{event.title}</Typography>
-                          <Typography>{event.description}</Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
+            <Grid
+              container
+              spacing={2}
+              sx={{ width: "100%", maxWidth: "1024px" }}
+            >
+              {category.events.map((event) => (
+                <Grid item xs={12} sm={6} md={4} key={event.id}>
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      height="140px"
+                      image={event.image}
+                      alt={event.name}
+                    ></CardMedia>
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography>{event.title}</Typography>
+                      <Typography>{event.description}</Typography>
+                    </CardContent>
+                  </Card>
                 </Grid>
-              </Box>
-            ))}
-          </Box> 
+              ))}
+            </Grid>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }
