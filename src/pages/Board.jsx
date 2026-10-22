@@ -15,13 +15,22 @@ import {
   InputLabel,
   OutlinedInput,
   Stack,
+  styled,
 } from "@mui/material";
 
 import { eventCategories } from "../mocks/eventMock";
 
+const Chip = styled(Box)(({theme}) => ({
+  display: 'inline-flex', 
+  padding: '8px', 
+  borderRadius: '4px', 
+  marginBottom: '8px'
+}))
+
 export function Board() {
   return (
-    <Box sx={{ backgroundColor: "#06151A", height: "100vh" }}>
+    <Box sx={{ backgroundColor: "#06151A", minHeight: "100vh" }}>
+
       {/* Navbar */}
       <AppBar sx={{ position: "static" }}>
         <Toolbar sx={{ justifyContent: "center" }}>
@@ -111,28 +120,57 @@ export function Board() {
         </Box>
       </Box>
 
-      <Box>
+      {/* Eventos */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: "#06151A",
+          px: 2,
+          py: 8,
+        }}
+      >
         {eventCategories.map((category) => (
-          <Box key={category.name}>
-            <Typography>{category.name}</Typography>
+          <Box
+            key={category.name}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              maxWidth: "1024px",
+              mb: 8,
+              border: "1px solid #FFF",
+            }}
+          >
+            <Typography
+              variant="h5"
+              component="h2"
+              sx={{ color: "#FFF", mb: 3, fontSize: '20px' }}
+            >
+              {category.name}
+            </Typography>
 
             <Grid
               container
               spacing={2}
-              sx={{ width: "100%", maxWidth: "1024px" }}
+              sx={{ width: "100%" }}
             >
               {category.events.map((event) => (
-                <Grid item xs={12} sm={6} md={4} key={event.id}>
-                  <Card>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={event.id}>
+                  <Card sx={{ width: "282px"}}>
                     <CardMedia
                       component="img"
-                      height="140px"
+                      height="237px"
                       image={event.image}
                       alt={event.name}
                     ></CardMedia>
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography>{event.title}</Typography>
-                      <Typography>{event.description}</Typography>
+                    <CardContent sx={{ flexGrow: 1, py: 3, px: 2, backgroundColor:'#212121', height: "241px" }}>
+                      <Chip>
+                        <Typography variant='caption' >{event.theme}</Typography>
+                      </Chip>
+                      <Typography>{event.date}</Typography>
+                      <Typography>{event.name}</Typography>
                     </CardContent>
                   </Card>
                 </Grid>
