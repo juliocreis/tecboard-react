@@ -20,17 +20,19 @@ import {
 
 import { eventCategories } from "../mocks/eventMock";
 
-const Chip = styled(Box)(({theme}) => ({
-  display: 'inline-flex', 
-  padding: '8px', 
-  borderRadius: '4px', 
-  marginBottom: '8px'
-}))
+const Chip = styled(Box)(({ theme }) => ({
+  // API do Styled do MUI para criar um componente personalizado
+  display: "inline-flex",
+  backgroundColor: theme.pallete.textSecondary,
+  padding: "8px",
+  borderRadius: "4px",
+  marginBottom: "8px",
+  textTransform: "uppercase",
+}));
 
 export function Board() {
   return (
     <Box sx={{ backgroundColor: "#06151A", minHeight: "100vh" }}>
-
       {/* Navbar */}
       <AppBar sx={{ position: "static" }}>
         <Toolbar sx={{ justifyContent: "center" }}>
@@ -48,12 +50,16 @@ export function Board() {
           mb: "64px",
         }}
       >
-        <Box>
+        <Box sx={{ position: "relative" }}>
           <img src={Banner} alt="Banner" />
+          <Typography
+            variant="h1"
+            component="h1"
+            sx={{ color: "#FFF", position: "absolute", bottom: "80px", left: "50%", transform: "translateX(-50%)", textAlign: "center" }}
+          >
+            Seu hub de eventos de tecnologia
+          </Typography>
         </Box>
-        <Typography variant="h3" component="h1" sx={{ color: "#FFF" }}>
-          Seu hub de eventos de tecnologia
-        </Typography>
       </Box>
 
       {/* Formulário */}
@@ -116,6 +122,7 @@ export function Board() {
                 placeholder="Selecione uma opção"
               ></OutlinedInput>
             </FormControl>
+            <Button sx={{ alignSelf: "center" }}>Criar evento</Button>
           </Stack>
         </Box>
       </Box>
@@ -140,34 +147,36 @@ export function Board() {
               width: "100%",
               maxWidth: "1024px",
               mb: 8,
-              border: "1px solid #FFF",
             }}
           >
             <Typography
               variant="h5"
               component="h2"
-              sx={{ color: "#FFF", mb: 3, fontSize: '20px' }}
+              sx={{ color: "#FFF", mb: 3, fontSize: "20px" }}
             >
               {category.name}
             </Typography>
 
-            <Grid
-              container
-              spacing={2}
-              sx={{ width: "100%" }}
-            >
+            <Grid container spacing={2} sx={{ width: "100%" }}>
               {category.events.map((event) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={event.id}>
-                  <Card sx={{ width: "282px"}}>
+                  <Card sx={{ width: "282px" }}>
                     <CardMedia
                       component="img"
                       height="237px"
                       image={event.image}
                       alt={event.name}
                     ></CardMedia>
-                    <CardContent sx={{ flexGrow: 1, py: 3, px: 2, backgroundColor:'#212121', height: "241px" }}>
+                    <CardContent
+                      sx={{
+                        flexGrow: 1,
+                        py: 3,
+                        px: 2,
+                        backgroundColor: "#212121",
+                      }}
+                    >
                       <Chip>
-                        <Typography variant='caption' >{event.theme}</Typography>
+                        <Typography variant="caption">{event.theme}</Typography>
                       </Chip>
                       <Typography>{event.date}</Typography>
                       <Typography>{event.name}</Typography>
