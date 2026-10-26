@@ -46,4 +46,35 @@ const theme = createTheme({
   components,
 });
 
+const formTheme = createTheme({
+  typography: {
+    ...typographyOptions,
+    fontFamily: "Work Sans, Arial, sans-serif",
+  },
+
+  components: {
+    ...components,
+
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "#FFF",
+        },
+      },
+    },
+
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          color: "#4A4949",
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#4A4949", // cor padrão (repouso)
+          },
+        },
+      },
+    },
+  },
+});
+
 export default theme;
+export { formTheme };

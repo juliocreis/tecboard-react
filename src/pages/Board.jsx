@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Logo from "../assets/Logo.png";
 import Banner from "../assets/Banner.png";
+
+import { ThemeProvider } from "@mui/material/styles";
+
 import {
   Card,
   CardContent,
@@ -19,11 +21,13 @@ import {
 } from "@mui/material";
 
 import { eventCategories } from "../mocks/eventMock";
+import { formTheme } from "../theme";
+
 
 const Chip = styled(Box)(({ theme }) => ({
   // API do Styled do MUI para criar um componente personalizado
   display: "inline-flex",
-  backgroundColor: theme.pallete.textSecondary,
+  backgroundColor: theme.palette.textSecondary,
   padding: "8px",
   borderRadius: "4px",
   marginBottom: "8px",
@@ -55,7 +59,13 @@ export function Board() {
           <Typography
             variant="h1"
             component="h1"
-            sx={{ color: "#FFF", position: "absolute", bottom: "80px", left: "50%", transform: "translateX(-50%)", textAlign: "center" }}
+            sx={{
+              position: "absolute",
+              bottom: "80px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              textAlign: "center",
+            }}
           >
             Seu hub de eventos de tecnologia
           </Typography>
@@ -63,69 +73,76 @@ export function Board() {
       </Box>
 
       {/* Formulário */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <ThemeProvider theme={formTheme}>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: "100%",
-            maxWidth: "384px",
-            py: "32px",
-            px: "28px",
-            backgroundColor: "#CCC",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Typography>Preencha para criar um evento:</Typography>
-          <Stack spacing={2}>
-            <FormControl>
-              <InputLabel
-                shrink
-                htmlFor="name"
-                sx={{ transform: "none", mb: 1, position: "static" }}
-              >
-                Qual o nome do evento?
-              </InputLabel>
-              <OutlinedInput
-                id="name"
-                placeholder="Summer dev hits"
-              ></OutlinedInput>
-            </FormControl>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              maxWidth: "384px",
+              py: "32px",
+              px: "28px",
+              backgroundColor: "#212121",
+            }}
+          >
+            <Typography sx={{ mb: 4, fontSize: "20px" }}>
+              Preencha para criar um evento:
+            </Typography>
+            <Stack spacing={2}>
+              <FormControl>
+                <InputLabel
+                  shrink
+                  htmlFor="name"
+                  sx={{ transform: "none", mb: 1, position: "static" }}
+                >
+                  Qual o nome do evento?
+                </InputLabel>
+                <OutlinedInput
+                  id="name"
+                  placeholder="Summer dev hits"
+                ></OutlinedInput>
+              </FormControl>
 
-            <FormControl>
-              <InputLabel
-                shrink
-                htmlFor="name"
-                sx={{ transform: "none", mb: 1, position: "static" }}
-              >
-                Qual o nome do evento?
-              </InputLabel>
-              <OutlinedInput id="name" placeholder="XX/XX/XXXX"></OutlinedInput>
-            </FormControl>
+              <FormControl>
+                <InputLabel
+                  shrink
+                  htmlFor="name"
+                  sx={{ transform: "none", mb: 1, position: "static" }}
+                >
+                  Data do evento
+                </InputLabel>
+                <OutlinedInput
+                  id="name"
+                  placeholder="XX/XX/XXXX"
+                ></OutlinedInput>
+              </FormControl>
 
-            <FormControl>
-              <InputLabel
-                shrink
-                htmlFor="name"
-                sx={{ transform: "none", mb: 1, position: "static" }}
-              >
-                Qual o nome do evento?
-              </InputLabel>
-              <OutlinedInput
-                id="name"
-                placeholder="Selecione uma opção"
-              ></OutlinedInput>
-            </FormControl>
-            <Button sx={{ alignSelf: "center" }}>Criar evento</Button>
-          </Stack>
+              <FormControl>
+                <InputLabel
+                  shrink
+                  htmlFor="name"
+                  sx={{ transform: "none", mb: 1, position: "static" }}
+                >
+                  Tema do evento?
+                </InputLabel>
+                <OutlinedInput
+                  id="name"
+                  placeholder="Selecione uma opção"
+                ></OutlinedInput>
+              </FormControl>
+                <Button sx={{ alignSelf: "center" }}>Criar evento</Button>
+            </Stack>
+          </Box>
         </Box>
-      </Box>
+      </ThemeProvider>
 
       {/* Eventos */}
       <Box
@@ -154,7 +171,7 @@ export function Board() {
               component="h2"
               sx={{ color: "#FFF", mb: 3, fontSize: "20px" }}
             >
-              {category.name}
+              {category.name.toUpperCase()}
             </Typography>
 
             <Grid container spacing={2} sx={{ width: "100%" }}>
